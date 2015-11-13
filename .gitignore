@@ -4,3 +4,7 @@
 # virtual env
 venv/
 flask/
+
+# database files, i keep only scripts
+app.db
+db_repository/
