@@ -20,8 +20,8 @@ SQLALCHEMY_TRACK_MODIFICATIONS = True
 # setup mail list
 MAIL_SERVER = 'localhost'
 MAIL_PORT = 25
-MAIL_USERNAME = none
-MAIL_PASSWORD = none
+MAIL_USERNAME = None
+MAIL_PASSWORD = None
 
 # administrator list
 ADMINS = ['you@example.com']
