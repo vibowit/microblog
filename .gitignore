@@ -9,3 +9,6 @@ flask/
 app.db
 db_repository/
 tmp/
+
+# test framework
+test.db
