@@ -1,14 +1,14 @@
 # Byte-compiled 
 *.py[cod]
 
+# databases
+*.db
+
 # virtual env
 venv/
 flask/
 
 # database files, i keep only scripts
-app.db
 db_repository/
 tmp/
 
-# test framework
-test.db
