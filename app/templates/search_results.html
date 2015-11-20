@@ -1,9 +1,13 @@
 <!-- extends base.html -->
+<!-- extend base layout -->
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Search results for "{{ query }}":</h1>
+<h1>Search results for "{{query}}":</h1>
+{% include 'flash.html' %}
 {% for post in results %}
-  {% include 'post.html' %}
- {% endfor %}
+    {% include 'post.html' %}
+{% endfor %}
 {% endblock %}
+
+
