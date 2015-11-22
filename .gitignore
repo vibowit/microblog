@@ -1,5 +1,6 @@
 # Byte-compiled 
 *.py[cod]
+*.mo
 
 # databases
 *.db

@@ -29,28 +29,23 @@ class User(db.Model):
             backref=db.backref('followers', lazy='dynamic'),
             lazy='dynamic')
 
-
     @property
     def is_authenticated(self):
         return True
-
 
     @property
     def is_active(self):
         return True
 
-
     @property
     def is_anonymous(self):
         return False
-
 
     def get_id(self):
         try:
             return unicode(self.id) # python 2
         except NameError:
             return str(self.id) # python 3
-
 
     def avatar(self, size):
         return 'http://www.gravatar.com/avatar/%s?d=mm&s=%d' % (md5(self.email.encode('utf-8')).hexdigest(), size)
@@ -82,6 +77,10 @@ class User(db.Model):
                 break
             version += 1
         return new_nickname
+
+    @staticmethod
+    def make_valid_nickname(nickname):
+        return re.sub('[^a-zA-Z0-9_\.]', '', nickname)
 
 
     def __repr__(self):
