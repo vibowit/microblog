@@ -4,17 +4,23 @@ from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.login import LoginManager
 from flask.ext.openid import OpenID
 from flask.ext.mail import Mail
+from flask.ext.babel import Babel
+from .momentsjs import momentsjs
 
 from config import basedir, ADMINS, MAIL_SERVER, MAIL_PORT, MAIL_USERNAME, MAIL_PASSWORD
 
 app = Flask(__name__)
 app.config.from_object('config')
-db = SQLAlchemy(app)
+app.jinja_env.globals['momentsjs'] = momentsjs
+
 lm = LoginManager()
 lm.init_app(app)
 lm.login_view = 'login'
+
 oid = OpenID(app, os.path.join(basedir, 'tmp'))
+db = SQLAlchemy(app)
 mail = Mail(app)
+babel= Babel(app)
 
 if not app.debug:
     import logging
